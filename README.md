@@ -8,16 +8,16 @@ Kindergram backend model
 
 # documents
 2 docs per post:
-  postmeta:
-    appname
-    followinglist - usernames who are following [damien, jchris, sergey]
-    likes - list - usernames who like
-    username - poster
-    mediaid = id of photo
-    time: when posted
-  media:
-    binary
-    random id
+postmeta:
+  appname
+  followinglist - usernames who are following [damien, jchris, sergey]
+  likes - list - usernames who like
+  username - poster
+  mediaid = id of photo
+  time: when posted
+media:
+  binary
+  random id
 
 
 user profile:
