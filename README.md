@@ -47,8 +47,9 @@ function(doc, meta) {
   if (doc.type != "postmeta")
     return;
   emit([doc.username, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
-  foreach(user in followinglist)
+  doc.followinglist.forEach(function(user) {
     emits([user, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
+  });
 }
 ```
 
