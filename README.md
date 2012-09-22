@@ -31,6 +31,7 @@ user profile:
 
 # views
   following activity stream:
+    ```javascript
     function(doc, meta) {
       if (doc.type != "postmeta")
         return;
@@ -38,6 +39,7 @@ user profile:
       foreach(user in followinglist)
         emits([user, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
     }
+    ```
 
   my activity stream:
       function(doc, meta) {
