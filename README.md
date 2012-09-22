@@ -8,26 +8,36 @@ Kindergram backend model
 
 # documents
 2 docs per post:
-postmeta:
-  appname
-  followinglist - usernames who are following [damien, jchris, sergey]
-  likes - list - usernames who like
-  username - poster
-  mediaid = id of photo
-  time: when posted
-media:
-  binary
-  random id
+```javascript
+{
+  type:"postmeta",   // doc type
+  appname:"",        // application that creates the media
+  followinglist: [], // users following the posting user when posted
+  likes: [],         // users who like it
+  username: "",      // user who posted
+  media_id: "",      // id of media doc
+  time: integer      // unix time when posted
+}
+```
+media doc: contains the binary, has media_id as key
+  
 
 
-user profile:
-  username
-  apps - list of apps you use
+```javascript
+{
+  type: "user",
+  username: "" // users id
+  apps: []     // list of apps you use
+}
+```
 
-"following" association:
-  username: damienkatz
-  following_username: sergey
-
+```javascript
+{
+  type: "following"
+  username: damienkatz,      //user who is following someone
+  following_username: sergey //user who is being followed
+}
+```
 
 # views
 following activity stream:
