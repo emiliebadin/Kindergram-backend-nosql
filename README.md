@@ -30,37 +30,46 @@ user profile:
 
 
 # views
-  following activity stream:
-    ```javascript
-    function(doc, meta) {
-      if (doc.type != "postmeta")
-        return;
-      emit([doc.username, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
-      foreach(user in followinglist)
-        emits([user, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
-    }
-    ```
+following activity stream:
 
-  my activity stream:
-      function(doc, meta) {
-        if (doc.type != "postmeta")
-          return;
-        emit([doc.user, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
-      }
+```javascript
+function(doc, meta) {
+  if (doc.type != "postmeta")
+    return;
+  emit([doc.username, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
+  foreach(user in followinglist)
+    emits([user, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
+}
+```
+
+my\_activity\_stream:
+
+```javascript
+function(doc, meta) {
+  if (doc.type != "postmeta")
+    return;
+  emit([doc.user, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
+}
+```
   
-  my_followers:
-    function(doc, meta) {
-      if (doc.type = "following") {
-        emit(doc.following_username, doc.username);
-      }
-    }
+my\_followers:
 
-  who_i_follow:
-    function(doc, meta) {
-      if (doc.type = "following") {
-        emit(doc.username, doc.following_username);
-      }
-    }
+```javascript
+function(doc, meta) {
+  if (doc.type = "following") {
+    emit(doc.following_username, doc.username);
+  }
+}
+```
+
+who\_i\_follow:
+```javascript
+function(doc, meta) {
+  if (doc.type = "following") {
+    emit(doc.username, doc.following_username);
+  }
+}
+```
     
-  popular posts:
-  ????
+popular posts:
+????
