@@ -34,8 +34,8 @@ media doc: contains the binary, has media_id as key
 ```javascript
 {
   type: "following"
-  username: damienkatz,      //user who is following someone
-  following_username: sergey //user who is being followed
+  username: "damienkatz",      //user who is following someone
+  following_username: "sergey" //user who is being followed
 }
 ```
 
