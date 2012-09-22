@@ -46,9 +46,9 @@ following activity stream:
 function(doc, meta) {
   if (doc.type != "postmeta")
     return;
-  emit([doc.username, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
+  emit([doc.username, doc.time], {poster: doc.username, media_id: doc.media_id, likes: doc.likes});
   doc.followinglist.forEach(function(user) {
-    emits([user, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
+    emits([user, doc.time], {poster: doc.username, media_id: doc.media_id, likes: doc.likes});
   });
 }
 ```
@@ -59,7 +59,7 @@ my\_activity\_stream:
 function(doc, meta) {
   if (doc.type != "postmeta")
     return;
-  emit([doc.user, doc.time], {poster: username, media_id: media_id, likes: doc.likes});
+  emit([doc.user, doc.time], {poster: doc.username, media_id: doc.media_id, likes: doc.likes});
 }
 ```
   
