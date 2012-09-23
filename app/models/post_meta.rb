@@ -10,6 +10,7 @@ class PostMeta < Couchbase::Model
   attribute :likes,           :default => []
   # id of media doc
   attribute :media_id
+  attribute :media_size
   # unix time when posted
   attribute :time,            :default => lambda { Time.now.to_i }
 

@@ -1,0 +1,13 @@
+<%= form_tag(medias_path, :multipart => true) do %>
+    <p>
+        <%= label_tag :name, "Username" %>
+        <%= text_field_tag :name %>
+    </p>
+    <p>
+        <%= file_field_tag :data %>
+    </p>
+    <p>
+        <%= submit_tag "Upload" %>
+    </p>
+<% end %>
+
